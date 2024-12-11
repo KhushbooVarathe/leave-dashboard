@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  frontend:
+    image: demo_frontend2:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000/api
+    depends_on:
+      - backend
+
+  backend:
+    image: server:latest
+    ports:
+      - "8000:8000"
+    environment:
+      - NODE_ENV=development
+  
